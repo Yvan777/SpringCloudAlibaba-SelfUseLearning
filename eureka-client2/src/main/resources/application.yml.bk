@@ -1,0 +1,16 @@
+server:
+  port: 9098
+spring:
+  application:
+    name: eureka-9098
+eureka:
+  instance:
+    hostname: eureka-9098
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    sevice-url:
+      defaultZone: http://eureka-9099:9099/eureka/

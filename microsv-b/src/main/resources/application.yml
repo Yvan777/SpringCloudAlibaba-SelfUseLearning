@@ -1,0 +1,17 @@
+server:
+  port: 8065
+spring:
+  application:
+    name: microsv-b
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=UTF-8&connectTimeout=10000&socketTimeout=300000&useSSL=false
+    username: root
+    password: root
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr} #指定注册中心地址
+        username: nacos
+        password: nacos
+      server-addr: localhost:8848 #指定nacos服务地址

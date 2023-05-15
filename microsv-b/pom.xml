@@ -11,4 +11,7 @@
 
     <artifactId>microsv-b</artifactId>
 
+    <dependencies>
+
+    </dependencies>
 </project>

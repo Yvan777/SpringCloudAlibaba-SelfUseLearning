@@ -2,7 +2,6 @@ package com.yf.demo.microa.business.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yf.demo.microa.business.entity.BO.MBankList;
-import org.springframework.stereotype.Service;
 
 /**
  * @Description

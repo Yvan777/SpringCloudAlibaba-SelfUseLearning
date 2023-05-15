@@ -20,7 +20,7 @@ public class MicroBController {
     @GetMapping("/test1/V1")
     public Object bTest1(){
         JSONObject o = new JSONObject();
-        o.put("b_test1","kukukukukuku");
+        o.put("b_test1","micro-b访问成功了 ");
         return o;
     }
 

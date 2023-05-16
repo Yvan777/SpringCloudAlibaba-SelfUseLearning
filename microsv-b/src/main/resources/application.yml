@@ -16,5 +16,15 @@ spring:
         password: nacos
       server-addr: localhost:8850 #指定nacos服务地址 使用nginx进行负载均衡
 #      server-addr: localhost:8848,localhost:8845,localhost:8842 #指定nacos服务地址
+    sentinel:
+      eager: true
+      enabled: true
+      transport:
+        port: 8719
+        #sentinel服务器地址和端口
+        dashboard: localhost:8070
+        #当前项目地址，如果sentinel服务器地址和项目地址一致可不填写
+        #试过client ip写localhost 管理台不显示服务
+        client-ip: 127.0.0.1
 logging:
   config: classpath:log4j2.xml

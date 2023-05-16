@@ -12,4 +12,5 @@ mysql 8.0.15
     2.2 nacos 服务注册与发布
     2.3 nacos config的动态配置及共享
     2.4 顺便了解了一下springboot配置文件启动的源码
+    2.5 sentinel 流控及熔断
 进行中......

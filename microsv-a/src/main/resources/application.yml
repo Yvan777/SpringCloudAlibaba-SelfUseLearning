@@ -22,5 +22,14 @@ spring:
 #      - optional:nacos:provider-config-dev.yml  # 监听 PROVIDER_GROUP :provider-config-dev.yml
 #      - optional:nacos:provider-config-dev.yml?group=group_01  # 覆盖默认 group，监听 group_01:provider-config-dev.yml
 #      - optional:nacos:provider-config-dev.yml?group=group_02&refreshEnabled=false # 不开启动态刷新
+    sentinel:
+      eager: true
+      enabled: true
+      transport:
+        port: 8719
+        #sentinel服务器地址和端口
+        dashboard: 127.0.0.1:8070
+        #当前项目地址，如果sentinel服务器地址和项目地址一致可不填写
+        client-ip: 127.0.0.1
 logging:
   config: classpath:log4j2.xml

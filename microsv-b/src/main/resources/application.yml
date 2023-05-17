@@ -24,7 +24,6 @@ spring:
         #sentinel服务器地址和端口
         dashboard: localhost:8070
         #当前项目地址，如果sentinel服务器地址和项目地址一致可不填写
-        #试过client ip写localhost 管理台不显示服务
         client-ip: 127.0.0.1
 logging:
   config: classpath:log4j2.xml

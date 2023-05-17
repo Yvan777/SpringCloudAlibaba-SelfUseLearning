@@ -13,4 +13,6 @@ mysql 8.0.15
     2.3 nacos config的动态配置及共享
     2.4 顺便了解了一下springboot配置文件启动的源码
     2.5 sentinel 流控及熔断
+    2.6 sentinel 结合nacos 将配置落地(同步nacos的配置,不过如果要双向同步,需要改sentinel源码,网上有教程)
+    2.7 @SentinelResource注解 自定义处理流控熔断信息
 进行中......

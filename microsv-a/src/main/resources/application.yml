@@ -28,8 +28,36 @@ spring:
       transport:
         port: 8719
         #sentinel服务器地址和端口
-        dashboard: 127.0.0.1:8070
+        dashboard: localhost:8070
         #当前项目地址，如果sentinel服务器地址和项目地址一致可不填写
+        #试过client ip写localhost 管理台不显示服务
         client-ip: 127.0.0.1
+      #配置数据源 将熔断等信息存储在mysql数据库里,sentinel从nacos那里去加载这些信息
+      datasource:
+        #流控
+        flow:
+          nacos:
+            server-addr: ${spring.cloud.nacos.server-addr} #指定注册中心地址
+            data-id: ${spring.application.name}-flow-rules
+            rule-type: flow
+            group-id: DEFAULT_GROUP
+            username: nacos
+            password: nacos
+        #熔断降级
+        degrade:
+          nacos:
+            server-addr: ${spring.cloud.nacos.server-addr} #指定注册中心地址
+            data-id: ${spring.application.name}-degrade-rules
+            rule-type: degrade
+            group-id: DEFAULT_GROUP
+            username: nacos
+            password: nacos
 logging:
   config: classpath:log4j2.xml
+management:
+  endpoints:
+    #将所有可用的监控指标对外暴露
+    web:
+      #可以访问 /actuator/sentinel 进行查看sentinel监控项
+      exposure:
+        include: '*'

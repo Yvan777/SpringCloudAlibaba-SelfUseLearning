@@ -15,4 +15,5 @@ mysql 8.0.15
     2.5 sentinel 流控及熔断
     2.6 sentinel 结合nacos 将配置落地(同步nacos的配置,不过如果要双向同步,需要改sentinel源码,网上有教程)
     2.7 @SentinelResource注解 自定义处理流控熔断信息
+    2.8 自定义父类MyBlockExceptionHandler.class去处理流控熔断信息,跟2.7类似,不同的是2.7精确到具体的类方法,2.8是如果不设置2.7就走2.8
 进行中......

@@ -1,13 +1,16 @@
 package com.yff.demo.nacos.config.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yff.demo.nacos.config.service.SentinelServerl;
 import com.yff.demo.nacos.config.sync.SyncValueProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Random;
 
 /**
  * @Description
@@ -53,5 +56,26 @@ public class NacosConfigController {
 //        配置文件配了不刷新,但是类配了刷新 最终结果是以类的为准
         o.put("userBro",userBro);
         return o;
+    }
+
+    //测试熔断
+    @GetMapping("/test1/V1")
+    public Object test1(){
+        int i = new Random().nextInt(100);
+        if(i>70){
+            throw new RuntimeException("test exception !!!");
+        }
+        JSONObject o = new JSONObject();
+        o.put("test1","nacos-config访问成功了 ");
+        return o;
+    }
+
+    @Resource
+    SentinelServerl sentinelServerl;
+    //测试熔断 -- 自定义注解
+    @GetMapping("/test1/V2")
+    public String test2(){
+        JSONObject o = new JSONObject();
+        return sentinelServerl.sentinelTest("xx");
     }
 }

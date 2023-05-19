@@ -1,9 +1,9 @@
-package com.yf.demo.microa.business.service.impl;
+package com.yff.demo.nacos.config.service.impl;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.yf.demo.microa.business.service.SentinelServerl;
-import com.yf.demo.microa.business.service.handler.BlockHandler;
-import com.yf.demo.microa.business.service.handler.Fallback;
+import com.yff.demo.nacos.config.service.SentinelServerl;
+import com.yff.demo.nacos.config.service.handler.BlockHandler;
+import com.yff.demo.nacos.config.service.handler.Fallback;
 import org.springframework.stereotype.Service;
 
 /**

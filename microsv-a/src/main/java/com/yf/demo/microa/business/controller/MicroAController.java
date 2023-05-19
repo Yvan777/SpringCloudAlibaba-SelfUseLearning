@@ -3,7 +3,6 @@ package com.yf.demo.microa.business.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.yf.demo.microa.business.service.MBankListServer;
 import com.yf.demo.microa.business.service.MBankListServerPlus;
-import com.yf.demo.microa.business.service.SentinelServerl;
 import com.yf.demo.microa.feign.MicroBApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Random;
 
 /**
  * @Description
@@ -67,25 +65,4 @@ public class MicroAController {
         return o;
     }
 
-    //测试熔断
-    @GetMapping("/test5/V1")
-    public Object aTest5(){
-        int i = new Random().nextInt(100);
-        if(i>70){
-            throw new RuntimeException("test exception !!!");
-        }
-        JSONObject o = new JSONObject();
-        o.put("a_test5","micro-a访问成功了 ");
-        logger.debug("================请求成功======");
-        return o;
-    }
-
-    @Resource
-    SentinelServerl sentinelServerl;
-    //测试熔断 -- 自定义注解
-    @GetMapping("/test6/V1")
-    public String aTest6(){
-        JSONObject o = new JSONObject();
-        return sentinelServerl.sentinelTest("xx");
-    }
 }
